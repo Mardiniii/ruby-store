@@ -1,5 +1,5 @@
 require 'test/unit'
-require_relative 'product'
+require_relative '../product.rb'
 
 class ProductTest < Test::Unit::TestCase
 
