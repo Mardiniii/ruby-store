@@ -1,4 +1,3 @@
-require_relative 'discount_rule'
 require_relative 'store'
 require_relative 'item'
 
@@ -25,6 +24,6 @@ class Checkout
 
   def total
     @rules.each{ |rule| rule.apply(@items) }
-    @items.inject(0.0){ |total, item| total += store.find(item.code).price}
+    @items.inject(0.0){ |total, item| total += item.price}
   end
 end
