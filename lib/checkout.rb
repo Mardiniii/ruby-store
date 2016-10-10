@@ -6,7 +6,10 @@ class Checkout
 
   def initialize(pricing_rules)
     @rules = pricing_rules
-    @store = Store.new
+    voucher = Product.new('VOUCHER', 'Cabify Voucher', 5.0),
+    tshirt = Product.new('TSHIRT', 'Cabify T-Shirt', 20.0),
+    mug = Product.new('MUG', 'Cafify Coffee Mug', 7.5)
+    @store = Store.new(voucher, tshirt, mug)
     @items = []
     @valid_codes = @store.valid_codes
   end
