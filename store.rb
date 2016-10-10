@@ -15,7 +15,7 @@ class Store
 
   def find(code)
     return @inventory[code.to_sym] if @inventory.key?(code.to_sym)
-    "Sorry, this product does not exist"
+    nil
   end
 
   def add_product(code, name, price)
