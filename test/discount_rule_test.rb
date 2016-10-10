@@ -1,6 +1,6 @@
 require 'test/unit'
-require_relative '../discount_rule.rb'
-require_relative '../checkout.rb'
+require_relative '../lib/discount_rule.rb'
+require_relative '../lib/checkout.rb'
 
 class DiscountRuleTest < Test::Unit::TestCase
   def setup

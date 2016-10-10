@@ -1,5 +1,5 @@
 require 'test/unit'
-require_relative '../store.rb'
+require_relative '../lib/store.rb'
 
 class StoreTest < Test::Unit::TestCase
 
@@ -14,7 +14,7 @@ class StoreTest < Test::Unit::TestCase
   def test_find_product_method
     product = @store.products.first
     assert_equal [ product.code, product.name, product.price], @store.find(product.code).to_a
-    assert_equal "Sorry, this product does not exist", @store.find('Car')
+    assert_equal nil, @store.find('Car')
   end
 
   def test_store_creates_a_new_product

@@ -1,6 +1,6 @@
 require 'test/unit'
-require_relative '../two_for_one_rule.rb'
-require_relative '../checkout.rb'
+require_relative '../lib/two_for_one_rule.rb'
+require_relative '../lib/checkout.rb'
 
 class TwoForOneRuleTest < Test::Unit::TestCase
   def setup

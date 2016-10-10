@@ -1,7 +1,7 @@
 require 'test/unit'
-require_relative '../checkout.rb'
-require_relative '../discount_rule.rb'
-require_relative '../two_for_one_rule.rb'
+require_relative '../lib/checkout.rb'
+require_relative '../lib/discount_rule.rb'
+require_relative '../lib/two_for_one_rule.rb'
 
 class CheckoutTest < Test::Unit::TestCase
 
@@ -13,11 +13,11 @@ class CheckoutTest < Test::Unit::TestCase
   end
 
   def test_when_checkout_scan_a_new_product
-    assert_equal @checkout.scan("VOUCHER"), 'Added to car'
-    assert_equal @checkout.scan("PEN"), 'Sorry, This product code does not exist'
-    assert_equal @checkout.scan("TSHIRT"), 'Added to car'
-    assert_equal @checkout.scan("MUG"), 'Added to car'
-    assert_equal @checkout.scan("CAR"), 'Sorry, This product code does not exist'
+    assert_equal @checkout.scan("VOUCHER"), true
+    assert_equal @checkout.scan("PEN"), false
+    assert_equal @checkout.scan("TSHIRT"), true
+    assert_equal @checkout.scan("MUG"), true
+    assert_equal @checkout.scan("CAR"), false
   end
 
   def test_that_total_works_correcty_without_apply_promotions_and_invalid_codes
