@@ -22,8 +22,8 @@ class DiscountRuleTest < Test::Unit::TestCase
   def test_rule_application_without_items_to_apply_discount
     items = [ @voucher_one, @mug_one ]
     @rule.apply(items)
-    assert_equal @voucher_one.price, @voucher_one.price, "Item price didn't change"
-    assert_equal @mug_one.price, @mug_one.price, "Item price didn't change"
+    assert_equal @voucher_one.price, @voucher.price, "Item price didn't change"
+    assert_equal @mug_one.price, @mug.price, "Item price didn't change"
   end
 
   def test_rule_application_without_enough_quantity_to_apply_discount
@@ -31,8 +31,8 @@ class DiscountRuleTest < Test::Unit::TestCase
     @rule.apply(items)
     assert_equal @tshirt_one.price, @tshirt.price, "Item price didn't change"
     assert_equal @tshirt_two.price, @tshirt.price, "Item price didn't change"
-    assert_equal @voucher_one.price, @voucher_one.price, "Item price didn't change"
-    assert_equal @mug_one.price, @mug_one.price, "Item price didn't change"
+    assert_equal @voucher_one.price, @voucher.price, "Item price didn't change"
+    assert_equal @mug_one.price, @mug.price, "Item price didn't change"
   end
 
   def test_rule_application_with_the_minimun_quantity_to_apply_discount
@@ -42,8 +42,8 @@ class DiscountRuleTest < Test::Unit::TestCase
     assert_equal @tshirt_one.price, @tshirt.price - discount_value, "Item price had discount"
     assert_equal @tshirt_two.price, @tshirt.price - discount_value, "Item price had discount"
     assert_equal @tshirt_three.price, @tshirt.price - discount_value, "Item price had discount"
-    assert_equal @voucher_one.price, @voucher_one.price, "Item price didn't change"
-    assert_equal @mug_one.price, @mug_one.price, "Item price didn't change"
+    assert_equal @voucher_one.price, @voucher.price, "Item price didn't change"
+    assert_equal @mug_one.price, @mug.price, "Item price didn't change"
   end
 
   def test_rule_application_with_more_than_the_quantity_necessary_to_apply_discount
@@ -55,7 +55,7 @@ class DiscountRuleTest < Test::Unit::TestCase
     assert_equal @tshirt_three.price, @tshirt.price - discount_value, "Item price had discount"
     assert_equal @tshirt_four.price, @tshirt.price - discount_value, "Item price had discount"
     assert_equal @tshirt_five.price, @tshirt.price - discount_value, "Item price had discount"
-    assert_equal @voucher_one.price, @voucher_one.price, "Item price didn't change"
-    assert_equal @mug_one.price, @mug_one.price, "Item price didn't change"
+    assert_equal @voucher_one.price, @voucher.price, "Item price didn't change"
+    assert_equal @mug_one.price, @mug.price, "Item price didn't change"
   end
 end
