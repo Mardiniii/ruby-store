@@ -1,5 +1,6 @@
 class Item
-  attr_accessor :code, :price
+  attr_reader :code
+  attr_writer :price
 
   def initialize(code, price)
     @code, @price = code, price

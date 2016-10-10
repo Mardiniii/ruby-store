@@ -22,6 +22,7 @@ class Checkout
     end
   end
 
-  def total()
+  def total
+    @items.inject(0.0){ |total, item| total += store.find(item.code).price}
   end
 end

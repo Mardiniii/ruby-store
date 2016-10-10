@@ -46,6 +46,3 @@ class Store
     products
   end
 end
-
-store = Store.new
-store.valid_codes
