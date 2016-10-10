@@ -16,9 +16,9 @@ class Checkout
       product = @store.find(code)
       item = Item.new(product.code, product.price)
       @items.push(item)
-      'Added to car'
+      true
     else
-      'Sorry, This product code does not exist'
+      false
     end
   end
 
