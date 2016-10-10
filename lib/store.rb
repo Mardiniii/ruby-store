@@ -1,6 +1,5 @@
 require 'terminal-table'
 require_relative 'product'
-require 'byebug'
 
 class Store
   attr_reader :products
