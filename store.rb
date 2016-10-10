@@ -6,7 +6,7 @@ class Store
   attr_reader :products
 
   def initialize
-    @products = {
+    @inventory = {
       'VOUCHER': Product.new('VOUCHER', 'Cabify Voucher', 5.0),
       'TSHIRT': Product.new('TSHIRT', 'Cabify T-Shirt', 20.0),
       'MUG': Product.new('MUG', 'Cafify Coffee Mug', 7.5)
@@ -14,13 +14,13 @@ class Store
   end
 
   def find(code)
-    return @products[code.to_sym] if @products.key?(code.to_sym)
+    return @inventory[code.to_sym] if @inventory.key?(code.to_sym)
     "Sorry, this product does not exist"
   end
 
   def add_product(code, name, price)
     product = Product.new(code, name, price)
-    @products[code.to_sym] = product
+    @inventory[code.to_sym] = product
   end
 
   def list
@@ -28,19 +28,23 @@ class Store
   end
 
   def products_quantity
-    @products.size
+    @inventory.size
+  end
+
+  def products
+    @inventory.values
   end
 
   # Returns an array with all the product codes
   def valid_codes
-    @products.values.map{ |p| p.code }
+    @inventory.values.map{ |p| p.code }
   end
 
   private
   # Returns all the products as array of arrays
   def to_a
     products = []
-    @products.each do |code, product|
+    @inventory.each do |code, product|
       products.push(product.to_a)
     end
     products

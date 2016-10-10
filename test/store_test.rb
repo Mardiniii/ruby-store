@@ -12,7 +12,7 @@ class StoreTest < Test::Unit::TestCase
   end
 
   def test_find_product_method
-    product = @store.products.first[1]
+    product = @store.products.first
     assert_equal [ product.code, product.name, product.price], @store.find(product.code).to_a
     assert_equal "Sorry, this product does not exist", @store.find('Car')
   end
@@ -27,7 +27,7 @@ class StoreTest < Test::Unit::TestCase
   def test_valid_codes_method
     codes = []
     valid_codes = @store.valid_codes
-    @store.products.values.each{ |product| codes.push(product.code) }
+    @store.products.each{ |product| codes.push(product.code) }
     assert_equal codes, valid_codes
   end
 end
