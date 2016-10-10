@@ -1,8 +1,9 @@
-require_relative 'item'
+require_relative 'discount_rule'
 require_relative 'store'
+require_relative 'item'
 
 class Checkout
-  attr_reader :total, :store
+  attr_reader :total, :store, :items
 
   def initialize(pricing_rules)
     @rules = pricing_rules
@@ -23,6 +24,7 @@ class Checkout
   end
 
   def total
+    @rules.each{ |rule| rule.apply(@items) }
     @items.inject(0.0){ |total, item| total += store.find(item.code).price}
   end
 end
