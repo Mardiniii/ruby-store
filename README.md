@@ -1,3 +1,11 @@
+# Solution to Cabify Coding Exercise
+
+## Class Diagram
+
+![Image of Class Diagram]
+(http://i592.photobucket.com/albums/tt5/Mardini03/cabifys-store-diagram-edited.png)
+
+
 ```
 Code         | Name                |  Price
 -------------------------------------------------
