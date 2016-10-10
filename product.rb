@@ -11,7 +11,11 @@ class Product
 
   def to_s
     product = [ @code, @name, @price ]
-    table = Terminal::Table.new( headings: ['Code', 'Name', 'Price'], rows: [ product ])
+    table = Terminal::Table.new(headings: ['Code', 'Name', 'Price'], rows: [ product ])
+  end
+
+  def to_a
+    [ @code, @name, @price ]
   end
 end
 
