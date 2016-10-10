@@ -1,6 +1,5 @@
 require 'terminal-table'
 require_relative 'product'
-require 'byebug'
 
 class Store
   attr_reader :products
@@ -14,12 +13,14 @@ class Store
   end
 
   def find(code)
-    @products.key?(code.to_sym) ? @products[code.to_sym] : "Sorry, this product does not exist"
+    return @products[code.to_sym] if @products.key?(code.to_sym)
+    "Sorry, this product does not exist"
   end
 
-  # def create(product)
-
-  # end
+  def add_product(code, name, price)
+    product = Product.new(code, name, price)
+    @products[code.to_sym] = product
+  end
 
   def products_quantity
     @products.size
@@ -39,8 +40,3 @@ class Store
     products
   end
 end
-
-store = Store.new
-puts store.list
-puts store.find("Carro").to_s
-puts store.find("VOUCHER")
