@@ -13,8 +13,7 @@ class Store
   end
 
   def find(code)
-    return @inventory[code.to_sym] if @inventory.key?(code.to_sym)
-    nil
+    @inventory[code.to_sym]
   end
 
   def add_product(code, name, price)
