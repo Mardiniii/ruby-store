@@ -35,7 +35,7 @@ class Store
 
   # Returns an array with all the product codes
   def valid_codes
-    @inventory.values.map{ |p| p.code }
+    @inventory.values.map(&:code)
   end
 
   private
