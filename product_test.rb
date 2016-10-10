@@ -10,7 +10,7 @@ class ProductTest < Test::Unit::TestCase
     @product = Product.new(@code, @name, @price)
   end
 
-  def test_new_product
+  def test_that_new_product_is_created_correctly
     assert_equal @code, @product.code, 'Product code is ok'
     assert_equal @name, @product.name, 'Product name is ok'
     assert_equal @price, @product.price, 'Product price is ok'
