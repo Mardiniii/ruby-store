@@ -3,6 +3,8 @@ require_relative 'product'
 require 'byebug'
 
 class Store
+  attr_reader :products
+
   def initialize
     @products = {
       'VOUCHER': Product.new('VOUCHER', 'Cabify Voucher', 5.0),
@@ -11,9 +13,9 @@ class Store
     }
   end
 
-  # def find(code)
-  #   @products.key?(code)
-  # end
+  def find(code)
+    @products.key?(code.to_sym) ? @products[code.to_sym] : "Sorry, this product does not exist"
+  end
 
   # def create(product)
 
@@ -37,3 +39,8 @@ class Store
     products
   end
 end
+
+store = Store.new
+puts store.list
+puts store.find("Carro").to_s
+puts store.find("VOUCHER")
