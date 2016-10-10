@@ -23,4 +23,11 @@ class StoreTest < Test::Unit::TestCase
     assert_equal 4, @store.products_quantity, 'The store has 4 products'
     assert_equal [ product.code, product.name, product.price], @store.find(product.code).to_a
   end
+
+  def test_valid_codes_method
+    codes = []
+    valid_codes = @store.valid_codes
+    @store.products.values.each{ |product| codes.push(product.code) }
+    assert_equal codes, valid_codes
+  end
 end

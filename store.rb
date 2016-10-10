@@ -1,5 +1,6 @@
 require 'terminal-table'
 require_relative 'product'
+require 'byebug'
 
 class Store
   attr_reader :products
@@ -22,12 +23,17 @@ class Store
     @products[code.to_sym] = product
   end
 
+  def list
+    Terminal::Table.new(title: "Cabify's Store", headings: [ 'Code', 'Name', 'Price'], rows: to_a)
+  end
+
   def products_quantity
     @products.size
   end
 
-  def list
-    Terminal::Table.new(title: "Cabify's Store", headings: [ 'Code', 'Name', 'Price'], rows: to_a)
+  # Returns an array with all the product codes
+  def valid_codes
+    @products.values.map{ |p| p.code }
   end
 
   private
@@ -40,3 +46,6 @@ class Store
     products
   end
 end
+
+store = Store.new
+store.valid_codes
