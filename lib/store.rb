@@ -1,15 +1,12 @@
 require 'terminal-table'
 require_relative 'product'
+require 'byebug'
 
 class Store
   attr_reader :products
 
-  def initialize
-    @inventory = {
-      'VOUCHER': Product.new('VOUCHER', 'Cabify Voucher', 5.0),
-      'TSHIRT': Product.new('TSHIRT', 'Cabify T-Shirt', 20.0),
-      'MUG': Product.new('MUG', 'Cafify Coffee Mug', 7.5)
-    }
+  def initialize(*args)
+    @inventory = args.map{ |product| [product.code.to_sym, product] }.to_h
   end
 
   def find(code)
