@@ -25,6 +25,12 @@ class Checkout
     end
   end
 
+  def show
+    items = @items.map(&:code).join(', ')
+    puts "Items: #{items}"
+    puts "Total: #{self.total}€"
+  end
+
   def total
     @rules.each{ |rule| rule.apply(@items) }
     @items.inject(0.0){ |total, item| total += item.price}
