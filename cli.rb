@@ -25,7 +25,7 @@ while option != 6
   puts """
     Welcome to Cabify's Ruby Store
 
-    1. Get Cabify's Store Inventory
+    1. Inventory
     2. Find product
     3. Add new product
     4. Add product to checkout
@@ -35,11 +35,11 @@ while option != 6
   prompt
 
   option = gets.chomp.to_i
+  breakline
   case option
   when 1
     puts @store.list
   when 2
-    breakline
     puts 'Please enter product code'
     prompt
     code = gets.chomp
@@ -47,16 +47,24 @@ while option != 6
     breakline
     puts product.nil? ? 'Sorry, this product does not exist' : product.to_s
   when 3
+    puts 'Please enter code:'
+    code = gets.chomp
+    puts 'Please enter name:'
+    name = gets.chomp
+    puts 'Please enter price:'
+    price = gets.chomp.to_f
 
+    @store.add_product(code, name, price)
+    product = @store.find(code)
+    puts 'The next product was create successfully'
+    puts product.to_s
   when 4
 
   when 5
 
   when 6
-    breakline
     puts 'Bye bye user!'
   else
-    breakline
     puts 'Please select a correct option'
   end
 end
