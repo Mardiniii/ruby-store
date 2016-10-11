@@ -27,7 +27,7 @@ class Checkout
 
   def show
     items = @items.map(&:code).join(', ')
-    puts "Items: #{items}"
+    puts items.size > 0 ? "Items: #{items}" : 'No items to checkout'
     puts "Total: #{self.total}€"
   end
 
