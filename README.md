@@ -4,8 +4,7 @@ Hi Cabify Team, in this repository I want to share my solution to the [Ruby Code
 
 ## Class Diagram
 
-![Image of Class Diagram]
-(http://i592.photobucket.com/albums/tt5/Mardini03/cabifys-store-diagram-edited.png)
+![Image of Class Diagram](http://i592.photobucket.com/albums/tt5/Mardini03/cabifys-store-diagram-edited.png)
 
 This is the class diagram that I chose to solve the exercise. With this architecture it is possible to connect to a database and extend the store with more products or rules in a quick and easy way. The exercise is composed of the following classes:
 
